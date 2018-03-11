@@ -18,3 +18,18 @@ cabal.sandbox.config
 .stack-work/
 cabal.project.local
 .HTF/
+
+# Idea
+.idea/
+*.iml
+
+# Vim
+*~
+
+# Exec
+cross-correlation
+
+# Data, plot images and results
+data/
+result.dat
+*.png
