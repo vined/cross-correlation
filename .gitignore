@@ -32,4 +32,4 @@ cross-correlation
 # Data, plot images and results
 data/
 result.dat
-*.png
+images/

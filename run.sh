@@ -12,7 +12,7 @@ if [ "$1" != "" ]; then
     data=$1
 fi
 
-./cross-correlation test.dat
+./cross-correlation $data
 
 
 #Plot
