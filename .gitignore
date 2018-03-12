@@ -26,10 +26,12 @@ cabal.project.local
 # Vim
 *~
 
-# Exec
+# Execs
+aggregator
 cross-correlation
 
 # Data, plot images and results
 data/
 result.dat
 images/
+aggregated.dat

@@ -35,4 +35,4 @@ main = do
     let aggregated = aggregate filtered
 
     putStrLn $ "Aggregated size: " ++ (show $ length aggregated)
-    writeFile "occurencies.dat" (unlines $ map (\(id, text) -> id ++ "\t" ++ (show text)) aggregated)
+    writeFile "aggregated.dat" (unlines $ map (\(id, text) -> id ++ "\t" ++ (show text)) aggregated)
