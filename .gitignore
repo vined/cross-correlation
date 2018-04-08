@@ -29,9 +29,22 @@ cabal.project.local
 # Execs
 aggregator
 cross-correlation
+merger
+reducer
 
 # Data, plot images and results
-data/
-result.dat
+tmpdata/
+result.csv
 images/
 aggregated.dat
+
+# Latex
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+Output
+Output_grep
+
+mainDocument.pdf
