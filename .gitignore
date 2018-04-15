@@ -34,7 +34,6 @@ reducer
 
 # Data, plot images and results
 tmpdata/
-result.csv
 images/
 aggregated.dat
 
