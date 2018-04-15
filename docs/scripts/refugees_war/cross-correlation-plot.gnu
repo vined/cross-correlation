@@ -20,7 +20,7 @@ set ytics 0.25 offset 1
 stats filename using 2 nooutput name 'Y_'
 stats filename using 1 every ::Y_index_max::Y_index_max nooutput
 X_max = STATS_max
-set label 2 sprintf("d=%d r=%.2f", X_max, Y_max) center at first X_max,Y_max point pt 7 ps 1 offset 1.5,0.5
+set label 2 sprintf("t=%d r=%.2f", X_max, Y_max) center at first X_max,Y_max point pt 7 ps 1 offset 1.5,0.5
 
 
 plot filename notitle with lines lw 1 lt rgb "#000000"

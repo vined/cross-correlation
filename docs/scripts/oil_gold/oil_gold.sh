@@ -2,7 +2,7 @@
 
 # Run
 
-data=sunspots_temp_gcag.csv
+data=oil_gold.csv
 result=result.csv
 
 ../../../cross-correlation $data $result 0
@@ -10,6 +10,6 @@ result=result.csv
 
 #Plot
 
-gnuplot -e "filename='${data}'" -pc ./sunspots-plot.gnu
-gnuplot -e "filename='${data}'" -pc ./temp-plot.gnu
+gnuplot -e "filename='${data}'" -pc ./oil-plot.gnu
+gnuplot -e "filename='${data}'" -pc ./gold-plot.gnu
 gnuplot -e "filename='${result}'" -pc cross-correlation-plot.gnu
