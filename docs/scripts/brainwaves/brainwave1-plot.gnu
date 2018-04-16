@@ -1,0 +1,19 @@
+unset log
+unset label
+set terminal png size 300,300 enhanced font "Helvetica,14"
+set output 'wave1.png'
+set encoding utf8
+set datafile separator ","
+
+set tmargin 0.5
+set lmargin 3.5
+set rmargin 1.5
+set bmargin 1.5
+
+set xtics 60 offset 0, graph 0.03
+set grid xtics lt 0 lw 1 lc rgb "#bbbbbb"
+
+set grid ytics lt 0 lw 1 lc rgb "#bbbbbb"
+set ytics offset 1
+
+plot filename using 1:($2/1000.) notitle with lines lw 1 lt rgb "#000000"
