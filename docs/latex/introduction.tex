@@ -1,8 +1,13 @@
-Signalų tarpusavio koreliacijos funkcija
+Darbe nagrinėjamos penkios signalų poros ir jų tarpusavio koreliacija.
+Užduotis atlikta \textit{Haskell} kalba. Grafikai gauti naudojant \textit{Gnuplot} įrankį.
+
+Jei turme diskrečius signalus \(f(t)\) ir \(g(t)\) kurių laiko trukmė \(t\) yra lygi
+ir abiejų signalų diskretizavimo žingsnis \(\Delta t\) yra tas pats,
+tai signalų tarpusavio koreliacija apibrėžiama funkcija:
 
 \begin{equation}
-    r_{rg} (d) = \dfrac{\displaystyle \sum\limits_{j=0}^{N-d} {(f_j - \bar{f}) (g_{d+j} - \bar{g})}} {\sqrt{\displaystyle \sum\limits_{j=0}^{N-d} (f_j - \bar{f})^2 \displaystyle \sum\limits_{j=0}^{N-d} (g_{d+j} - \bar{g})^2}},\qquad
-    d = 0,1,\ldots\ ,[N/2].
+    r_{fg} (d) = \dfrac{\displaystyle \sum\limits_{j=0}^{N-d} {(f_j - \bar{f}) (g_{d+j} - \bar{g})}} {\sqrt{\displaystyle \sum\limits_{j=0}^{N-d} (f_j - \bar{f})^2 \displaystyle \sum\limits_{j=0}^{N-d} (g_{d+j} - \bar{g})^2}},\qquad
+    d = 0,1, \ldots\ ,[N/2].
 \end{equation}
 
 čia
@@ -11,3 +16,34 @@ Signalų tarpusavio koreliacijos funkcija
     \bar{f} = \dfrac{1} {N-d+1} \displaystyle \sum\limits_{i=0}^{N-d} {f_i},\qquad
     \bar{g} = \dfrac{1} {N-d+1} \displaystyle \sum\limits_{i=0}^{N-d} {g_{d+i}}.
 \end{equation}
+
+Parametras \(d\) yra poslinkis laike.
+Tai yra, per kiek diskretaus laiko žingsnių yra pastumtos \(g\) reikšmės \(f\) reikšmių atžvilgiu.
+
+Jei sukeičiame \(f\) ir \(g\) reikšmes, galime skaičiuoti neigiamą signalų koreliacią, arba į praeitį.
+kas iš tiesų parodo ar \(g\) kitimas turėjo įtakos \(f\) reikšmėms.
+Funkciją \(r_{gf}\) galima interpretuoti kaip \(r_{fg}\) funkcijos pratesimą į neigiamas \(d\) reikšmes:
+
+\begin{equation}
+    r_{fg} (d) = r_{gf} (|d|),\qquad d = 0,-1, \ldots\ ,-[N/2].
+\end{equation}
+
+Grafikas pagal \(d\) nėra pakankamai informatyvus, nes reikia žinoti diskretaus laiko žingsį.
+Geresnis būdas atvaizduoti signalų tarpusavio koreliaciją yra naudojant priklausomybę nuo realaus laiko \(t\).
+Tuomet signalų koreliacijos funkcija nuo \(t\) žymėsime \(R_{fg}(t)\):
+
+\begin{equation}
+    R_{fg} (t) = r_{fg} (d),\qquad t = d\Delta t,\qquad d = -[N/2],-[N/2]+1, \ldots\ ,0,1, \ldots\ ,[N/2].
+\end{equation}
+
+Signalų tarpusavio koreliacijos grafikas \(R_{fg}(t)\) rodo signalų panašumą.
+Jo rezultatus galima interpretuoti suskirsčius gautas reikšmes intervalais:
+
+\begin{itemize}
+    \item Visiems \(t, |R_{fg}(t) \in [0, 0.2]\): tarp signalų \textit{nėra} statistinio panašumo arba jis labai silpnas.
+    \item Tam tikriems \(t, |R_{fg}(t) \in (0.2, 0.5]\): tarp signalų yra \textit{silpnas} statistinis ryšys.
+    \item Tam tikriems \(t, |R_{fg}(t) \in (0.5, 0.7]\): tarp signalų yra \textit{vidutinis} statistinis ryšys.
+    \item Tam tikriems \(t, |R_{fg}(t) \in (0.5, 1]\): tarp signalų yra \textit{stiprus} statistinis ryšys.
+\end{itemize}
+
+O, maksimali \(t\) reikšmė parodo per kiek reikėtų pastumti \(g\) reikšmes, kad jie taptų labiausiai panašūs.
